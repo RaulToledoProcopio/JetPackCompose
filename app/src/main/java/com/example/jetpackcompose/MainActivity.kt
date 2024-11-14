@@ -6,12 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Scaffold
@@ -45,83 +40,95 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Whatsapp(modifier: Modifier = Modifier) {
+    // Lista de nombres de usuario
     val messages = listOf(
         R.string.nombre1,
         R.string.nombre2,
         R.string.nombre3,
         R.string.nombre4,
+    )
 
-        )
+    // Lista de imágenes para cada usuario
+    val profileImages = listOf(
+        R.drawable.ic_profile1,
+        R.drawable.ic_profile2,
+        R.drawable.ic_profile3,
+        R.drawable.ic_profile4
+    )
 
     Column(modifier = Modifier.fillMaxWidth()) {
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .background(color = colorResource(R.color.whatsapp))) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = colorResource(R.color.whatsapp))
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_whatsapp),
-                contentDescription = "Profile image",
+                contentDescription = "WhatsApp logo",
                 modifier = Modifier
                     .size(40.dp)
                     .padding(end = 16.dp)
-                    .clip(CircleShape)
+                    .clip(CircleShape)  // Redondea el logo
                     .background(color = colorResource(R.color.whatsapp))
             )
             Text(
                 text = "Whatsapp",
                 modifier = Modifier
-                    .padding(start = 0.dp) // Solo padding horizontal
+                    .padding(start = 0.dp)
                     .align(Alignment.CenterVertically),
                 color = Color.White
             )
 
+            Spacer(modifier = Modifier.weight(1f))
+
             Image(
-                painter = painterResource(id = R.drawable.ic_profile),
+                painter = painterResource(id = R.drawable.ic_camera),
                 contentDescription = "Profile Image",
                 modifier = Modifier
                     .size(30.dp)
                     .padding(start = 10.dp)
+                    .clip(CircleShape)  // Redondea la imagen del perfil
                     .align(Alignment.CenterVertically)
             )
 
             Image(
-                painter = painterResource(id = R.drawable.ic_whatsapp),
-                contentDescription = "Whatsapp Icon",
+                painter = painterResource(id = R.drawable.ic_search),
+                contentDescription = "WhatsApp Icon",
                 modifier = Modifier
                     .size(30.dp)
                     .padding(start = 8.dp)
                     .align(Alignment.CenterVertically)
             )
         }
+
         LazyColumn(
             modifier = modifier
                 .fillMaxSize()
                 .padding(5.dp)
         ) {
             items(messages.size) { index ->
-                MessageRow(messageRes = messages[index])
+                MessageRow(messageRes = messages[index], imageRes = profileImages[index])
             }
         }
     }
 }
 
-
 @Composable
-fun MessageRow(messageRes: Int) {
+fun MessageRow(messageRes: Int, imageRes: Int) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically
-
     ) {
-
+        // Imagen personalizada para cada usuario
         Image(
-            painter = painterResource(id = R.drawable.ic_profile),
+            painter = painterResource(id = imageRes),
             contentDescription = "Profile image",
             modifier = Modifier
                 .size(40.dp)
                 .padding(end = 16.dp)
-                .clip(CircleShape)
+                .clip(CircleShape)  // Redondea la imagen
         )
 
         Text(
