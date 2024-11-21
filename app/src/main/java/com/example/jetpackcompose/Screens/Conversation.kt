@@ -2,9 +2,11 @@ package com.example.jetpackcompose.Screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,7 +40,7 @@ fun Conversation(navController: NavController, userName: String?) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = colorResource(R.color.BarraConversación))
+                .background(color = colorResource(id = R.color.BurbujaUsuario))
                 .padding(horizontal = 8.dp, vertical = 16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -114,13 +116,13 @@ fun MessageBubble(message: String, isUser: Boolean) {
             .padding(vertical = 4.dp),
         horizontalArrangement = if (isUser) Arrangement.End else Arrangement.Start
     ) {
+
         Text(
             text = message,
-            color = if (isUser) Color.White else Color.Black,
+            color = Color.White,
             modifier = Modifier
-                .background(if (isUser) Color(0xFF25D366) else Color.White) // Verde para el usuario, blanco para el otro
+                .background(if (isUser) colorResource(id = R.color.BurbujaUsuario) else Color.DarkGray, shape = RoundedCornerShape(16.dp))
                 .padding(12.dp)
-                .clip(CircleShape)
         )
     }
 }
