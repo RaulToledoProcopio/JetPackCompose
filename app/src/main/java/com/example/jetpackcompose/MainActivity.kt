@@ -40,7 +40,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Whatsapp(modifier: Modifier = Modifier) {
-    // Lista de nombres de usuario
     val messages = listOf(
         R.string.nombre1,
         R.string.nombre2,
@@ -51,7 +50,6 @@ fun Whatsapp(modifier: Modifier = Modifier) {
         R.string.nombre7,
     )
 
-    // Lista de imágenes para cada usuario
     val profileImages = listOf(
         R.drawable.ic_profile1,
         R.drawable.ic_profile2,
@@ -62,48 +60,41 @@ fun Whatsapp(modifier: Modifier = Modifier) {
         R.drawable.ic_profile7
     )
 
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = Modifier.fillMaxSize()) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = colorResource(R.color.whatsapp))
+                .padding(horizontal = 8.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_whatsapp),
                 contentDescription = "WhatsApp logo",
                 modifier = Modifier
                     .size(40.dp)
-                    .padding(end = 16.dp)
-                    .clip(CircleShape)  // Redondea el logo
+                    .clip(CircleShape)
                     .background(color = colorResource(R.color.whatsapp))
             )
             Text(
-                text = "Whatsapp",
+                text = "WhatsApp",
+                color = Color.White,
                 modifier = Modifier
-                    .padding(start = 0.dp)
-                    .align(Alignment.CenterVertically),
-                color = Color.White
+                    .padding(start = 8.dp)
+                    .weight(1f)
             )
-
-            Spacer(modifier = Modifier.weight(1f))
 
             Image(
                 painter = painterResource(id = R.drawable.ic_camera),
-                contentDescription = "Profile Image",
+                contentDescription = "Camera Icon",
                 modifier = Modifier
-                    .size(30.dp)
-                    .padding(start = 10.dp)
-                    .clip(CircleShape)  // Redondea la imagen del perfil
-                    .align(Alignment.CenterVertically)
+                    .size(50.dp)
+                    .padding(horizontal = 8.dp)
             )
-
             Image(
                 painter = painterResource(id = R.drawable.ic_search),
-                contentDescription = "WhatsApp Icon",
-                modifier = Modifier
-                    .size(30.dp)
-                    .padding(start = 8.dp)
-                    .align(Alignment.CenterVertically)
+                contentDescription = "Search Icon",
+                modifier = Modifier.size(25.dp)
             )
         }
 
