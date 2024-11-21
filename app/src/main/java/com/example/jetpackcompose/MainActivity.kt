@@ -46,6 +46,9 @@ fun Whatsapp(modifier: Modifier = Modifier) {
         R.string.nombre2,
         R.string.nombre3,
         R.string.nombre4,
+        R.string.nombre5,
+        R.string.nombre6,
+        R.string.nombre7,
     )
 
     // Lista de imágenes para cada usuario
@@ -53,7 +56,10 @@ fun Whatsapp(modifier: Modifier = Modifier) {
         R.drawable.ic_profile1,
         R.drawable.ic_profile2,
         R.drawable.ic_profile3,
-        R.drawable.ic_profile4
+        R.drawable.ic_profile4,
+        R.drawable.ic_profile2,
+        R.drawable.ic_profile2,
+        R.drawable.ic_profile2
     )
 
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -137,9 +143,8 @@ fun MessageRow(messageRes: Int, imageRes: Int) {
         )
     }
 }
-
-@Preview(showBackground = true)
 @Composable
+@Preview(showBackground = true)
 fun GreetingPreview() {
     JetpackComposeTheme {
         Whatsapp()

@@ -1,7 +1,10 @@
 <resources>
         <string name="app_name">WhatsApp</string>
-        <string name="nombre1">Jeffrey Dummer</string>
-        <string name="nombre2">Ted Bundy</string>
-        <string name="nombre3">Jeffrey Epstein</string>
+        <string name="nombre1">Jeffrey</string>
+        <string name="nombre2">Teddy</string>
+        <string name="nombre3">Jeff</string>
         <string name="nombre4">Vinicius Jr.</string>
+        <string name="nombre5">Jhonny</string>
+        <string name="nombre6">Charlie</string>
+        <string name="nombre7">Ted Bundy</string>
     </resources>
