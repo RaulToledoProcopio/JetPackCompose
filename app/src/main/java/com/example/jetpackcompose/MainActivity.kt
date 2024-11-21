@@ -57,9 +57,9 @@ fun Whatsapp(modifier: Modifier = Modifier) {
         R.drawable.ic_profile2,
         R.drawable.ic_profile3,
         R.drawable.ic_profile4,
-        R.drawable.ic_profile2,
-        R.drawable.ic_profile2,
-        R.drawable.ic_profile2
+        R.drawable.ic_profile5,
+        R.drawable.ic_profile6,
+        R.drawable.ic_profile7
     )
 
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -132,9 +132,8 @@ fun MessageRow(messageRes: Int, imageRes: Int) {
             painter = painterResource(id = imageRes),
             contentDescription = "Profile image",
             modifier = Modifier
-                .size(40.dp)
+                .size(50.dp)
                 .padding(end = 16.dp)
-                .clip(CircleShape)  // Redondea la imagen
         )
 
         Text(
