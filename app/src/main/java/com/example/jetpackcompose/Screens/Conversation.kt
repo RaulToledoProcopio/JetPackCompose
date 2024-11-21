@@ -33,7 +33,7 @@ fun Conversation(navController: NavController, userName: String?) {
         "Jeffrey Dahmer" -> listOf("Cuál es tu canción favorita?", "Estoy hecho de pedacitos de ti", "Como te pasas colega")
         "Vinicius Jr." -> listOf("Dónde vas a ver el balón de oro?", "Racista", "jajaja")
         "Walter White" -> listOf("Qué haces?", "Cocinando", "Como te gusta comer eh", "No me has entendido")
-        "Gustavo Fring" -> listOf("El KFC está más bueno en verdad", "Mike va de camino coméntaselo", "Que es broma, si soy to fan en verdad")
+        "Gustavo Fring" -> listOf("El KFC está más bueno en verdad", "Mike va de camino, coméntaselo", "Que es broma, si soy to fan en verdad")
         "Peter Griffin" -> listOf("Hola Peter, qué haces?", "Cosas", "Cosas Nazis?", "Si Raúl, cosas nazis")
         else -> listOf("Mensaje no disponible")
     }
@@ -75,7 +75,7 @@ fun Conversation(navController: NavController, userName: String?) {
 
             // Título con el nombre del usuario
             Text(
-                text = "Conversación con $userName",
+                text = "$userName",
                 color = Color.White,
                 modifier = Modifier.weight(1f) // Esto hace que el título ocupe el espacio restante
             )
