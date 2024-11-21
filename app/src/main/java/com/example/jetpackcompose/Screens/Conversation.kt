@@ -81,12 +81,12 @@ fun Conversation(navController: NavController, userName: String?) {
             )
 
             // Botón de volver a la pantalla principal, con texto clickable
-            Image(
-                painter = painterResource(id = R.drawable.ic_flecha),
-                contentDescription = "Volver",
+            Text(
+                text = "Volver",
+                color = Color.White,
                 modifier = Modifier
                     .clickable { navController.popBackStack() }
-                    .size(15.dp)
+                    .padding(start = 8.dp)
                     .align(Alignment.CenterVertically)
             )
         }
