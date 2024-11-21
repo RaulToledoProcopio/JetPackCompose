@@ -2,7 +2,6 @@ package com.example.jetpackcompose.Screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -28,7 +27,27 @@ import com.example.jetpackcompose.R
 
 @Composable
 fun Conversation(navController: NavController, userName: String?) {
-    val messages = listOf("Al final no voy, no me encuentro bien", "Es Lupus", "Eres tontísimo")
+    val messages = when (userName) {
+        "Gregory House" -> listOf("Al final no voy, no me encuentro bien", "Es Lupus", "Eres tontísimo")
+        "Dexter Morgan" -> listOf("Nos vemos luego?", "Si claro, vente al barco", "Es igual, déjalo")
+        "Jeffrey Dahmer" -> listOf("Cuál es tu canción favorita?", "Estoy hecho de pedacitos de ti", "Como te pasas colega")
+        "Vinicius Jr." -> listOf("Dónde vas a ver el balón de oro?", "Racista", "jajaja")
+        "Walter White" -> listOf("Qué haces?", "Cocinando", "Como te gusta comer eh", "No me has entendido")
+        "Gustavo Fring" -> listOf("El KFC está más bueno en verdad", "Mike va de camino coméntaselo", "Que es broma, si soy to fan en verdad")
+        "Peter Griffin" -> listOf("Hola Peter, qué haces?", "Cosas", "Cosas Nazis?", "Si Raúl, cosas nazis")
+        else -> listOf("Mensaje no disponible")
+    }
+
+    val profileImage = when (userName) {
+        "Gregory House" -> R.drawable.ic_profile1
+        "Dexter Morgan" -> R.drawable.ic_profile2
+        "Jeffrey Dahmer" -> R.drawable.ic_profile3
+        "Vinicius Jr." -> R.drawable.ic_profile4
+        "Walter White" -> R.drawable.ic_profile5
+        "Gustavo Fring" -> R.drawable.ic_profile6
+        "Peter Griffin" -> R.drawable.ic_profile7
+        else -> R.drawable.ic_profile1
+    }
     val userMessage = remember { mutableStateOf(TextFieldValue()) }
 
     Column(
@@ -44,9 +63,9 @@ fun Conversation(navController: NavController, userName: String?) {
                 .padding(horizontal = 8.dp, vertical = 16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Foto del perfil a la izquierda
+            // Foto del perfil a la izquierda (cambiando dinámicamente)
             Image(
-                painter = painterResource(id = R.drawable.ic_profile1), // Asegúrate de poner el ícono correspondiente
+                painter = painterResource(id = profileImage), // Imagen dinámica según el usuario
                 contentDescription = "Profile image",
                 modifier = Modifier
                     .size(40.dp)
@@ -62,12 +81,12 @@ fun Conversation(navController: NavController, userName: String?) {
             )
 
             // Botón de volver a la pantalla principal, con texto clickable
-            Text(
-                text = "Volver",
-                color = Color.White,
+            Image(
+                painter = painterResource(id = R.drawable.ic_flecha),
+                contentDescription = "Volver",
                 modifier = Modifier
                     .clickable { navController.popBackStack() }
-                    .padding(start = 8.dp)
+                    .size(15.dp)
                     .align(Alignment.CenterVertically)
             )
         }

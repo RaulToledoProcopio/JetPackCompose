@@ -52,7 +52,7 @@ fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = colorResource(R.color.whatsapp))
+                .background(color = colorResource(R.color.BurbujaUsuario))
                 .padding(horizontal = 8.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -60,7 +60,7 @@ fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
                 painter = painterResource(id = R.drawable.ic_whatsapp),
                 contentDescription = "WhatsApp logo",
                 modifier = Modifier
-                    .size(40.dp)
+                    .size(25.dp)
                     .clip(CircleShape)
             )
             Text(
@@ -74,13 +74,13 @@ fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
                 painter = painterResource(id = R.drawable.ic_camera),
                 contentDescription = "Camera Icon",
                 modifier = Modifier
-                    .size(50.dp)
-                    .padding(horizontal = 8.dp)
+                    .size(45.dp)
+                    .padding(horizontal = 5.dp)
             )
             Image(
                 painter = painterResource(id = R.drawable.ic_search),
                 contentDescription = "Search Icon",
-                modifier = Modifier.size(25.dp)
+                modifier = Modifier.size(20.dp)
             )
         }
 
