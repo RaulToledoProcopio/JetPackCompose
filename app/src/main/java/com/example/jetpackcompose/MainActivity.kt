@@ -101,7 +101,7 @@ fun Whatsapp(modifier: Modifier = Modifier) {
         LazyColumn(
             modifier = modifier
                 .fillMaxSize()
-                .padding(5.dp)
+                .background(colorResource(R.color.Fondo))
         ) {
             items(messages.size) { index ->
                 MessageRow(messageRes = messages[index], imageRes = profileImages[index])
@@ -129,7 +129,8 @@ fun MessageRow(messageRes: Int, imageRes: Int) {
 
         Text(
             text = stringResource(id = messageRes),
-            fontWeight = FontWeight.Normal
+            fontWeight = FontWeight.Normal,
+            color = Color.White
         )
     }
 }
